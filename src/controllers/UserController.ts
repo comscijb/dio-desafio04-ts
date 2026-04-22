@@ -16,7 +16,10 @@ export class UserController {
         if(!user.name){
             return response.status(400).json({ message: 'Bad request! Name obrigatório'})
         }
-
+        else if(!user.email){
+            return response.status(400).json({ message: 'Bad request! Email obrigatório'})
+        }
+        
         this.userService.createUser(user.name, user.email)
         return response.status(201).json({ message: 'Usuário criado'})
     }
@@ -25,4 +28,10 @@ export class UserController {
         const users = this.userService.getAllUsers()
         return response.status(200).json( users )
     } 
+
+    deleteUser = (request: Request, response: Response) => {
+        const userName = request.body.name
+        this.userService.deleteUser(userName)
+        return response.status(200).json({ message: 'Usuário deletado'})
+    }
 }

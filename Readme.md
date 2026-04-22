@@ -1,32 +1,71 @@
-# Desenvolvendo o Dio Bank
-desenvolvido por [Nathally Souza](https://github.com/nathyts)
+# Dio Bank
 
-#### Projeto desenvolvido com conceitos básicos de typescript
+Projeto original desenvolvido por [Nathally Souza](https://github.com/nathyts), refatorado e finalizado como parte do desafio proposto no curso de TypeScript.
 
-### Tecnologias
-- Typescript
+## Sobre o projeto
 
-### Como rodar o projeto
+API simples em TypeScript para gerenciamento de usuários, com foco em boas práticas de organização de código, validações e testes unitários utilizando Jest.
 
-1 - Clone o repositório
+## Tecnologias
 
-2 - Instale as dependeências
-    
+- TypeScript
+- Node.js
+- Express
+- Jest
+
+## O que foi implementado
+
+- Função de deletar usuário no `service` e no `controller`
+- Refatoração das rotas (`routes`)
+- Funcionalidade `getAllUsers`
+- Validação dos campos `name` e `email` na criação de usuário
+- Testes unitários cobrindo:
+  - criação de usuário
+  - retorno de todos os usuários
+  - deleção de usuário
+  - validação de `name` obrigatório
+  - validação de `email` obrigatório
+
+## Status do desafio
+
+- [x] Testes unitários pendentes no controller
+  - [x] Erro quando o `name` não é informado
+  - [x] Verificação da função `getAllUsers`
+- [x] Validação para o campo `email`
+  - [x] Bloqueio da criação sem `email`
+  - [x] Teste unitário correspondente
+- [x] Refatorar e implementar a rota para deletar usuário
+  - [x] Rota refatorada
+  - [x] Testes unitários adicionados
+
+## Pré-requisitos
+
+- [Node.js](https://nodejs.org/)
+- npm
+
+## Como rodar o projeto
+
+Clone o repositório:
+
+    git clone <URL_DO_REPOSITORIO>
+
+Acesse a pasta:
+
+    cd <NOME_DO_PROJETO>
+
+Instale as dependências (inclui dependências de desenvolvimento e testes):
+
     npm install
 
-3 - Execute o projeto
+Execute em modo desenvolvimento:
 
     npm run dev
 
-#### Desafios
-[ ] Incluir os testes unitários pendentes no controller
-  - Verificar a resposta de erro caso o usuário não informe o name
-  - Verificar se a função getAllusers está sendo chamada
+Rode os testes unitários:
 
-[ ] Implementa uma validação para o campo email
-  - O usuário nâo pode ser criado caso não informe o email
-  - Escreva o teste unitário
+    npm test
 
-[ ] Refatorar e implementar a rota para deletar o usuário
-  - Refatore a rota para deletar usuários
-  - Escreva os testes unitários necessários
+## Refatorado por
+
+**Jean Guilherme Borges**
+Dev Full Stack e Estudante de Ciência da Computação

@@ -9,4 +9,21 @@ describe('UserService', () => {
         userService.createUser('nath', 'nath@test.com');
         expect(mockConsole).toHaveBeenCalledWith('DB atualizado', mockDb)
     })
-})
+
+    it('Deve retornar todos os usuários', () => {
+        const users = userService.getAllUsers();
+        expect(users).toEqual(mockDb);
+    });
+
+    it('Deve deletar um usuário', () => {
+        const mockConsole = jest.spyOn(global.console, 'log')
+        userService.deleteUser('nath')
+        expect(mockConsole).toHaveBeenCalledWith('DB atualizado', mockDb)
+    })
+
+    it('Não deve deletar um usuário que não existe', () => {
+        const mockConsole = jest.spyOn(global.console, 'log')
+        userService.deleteUser('Khan')
+        expect(mockConsole).not.toHaveBeenCalled()
+    })
+});
